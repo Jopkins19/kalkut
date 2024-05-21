@@ -5,9 +5,10 @@ import java.util.*;
 
 public class Main{
 
-
+    private static HEX hex = new HEX();
     private static DEC dec = new DEC();
-
+    private static OCT oct = new OCT();
+    private static BIN bin = new BIN();
 
     private static boolean not_ended = true;
     private static int mode_ind = 0;
@@ -41,7 +42,10 @@ public class Main{
                     break;
 
                 case "=":
-                    if(mode_ind==1){System.out.println(dec.Calc());}
+                    if(mode_ind==0){System.out.println(hex.Calc());}
+                    else if(mode_ind==1){System.out.println(dec.Calc());}
+                    else if(mode_ind==2){System.out.println(oct.Calc());}
+                    else if(mode_ind==3){System.out.println(bin.Calc());}
                     break;
                 case "exit":
                     not_ended=!not_ended;

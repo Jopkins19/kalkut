@@ -17,12 +17,24 @@ abstract class Base_methods {
         Scanner scanner = new Scanner(System.in);
         char operation;
         String allow_op = "+/-*";
-
-        String stroka =  scanner.nextLine();
-
-        operation = stroka.toCharArray()[0];
-
-
+        try
+        {
+            String stroka =  scanner.nextLine();
+            if(stroka.length()>1)
+            {
+                throw new Exception();
+            }
+            operation = stroka.toCharArray()[0];
+            if(!allow_op.contains(String.valueOf(operation)))
+            {
+                throw new Exception();
+            }
+        }
+        catch(Throwable t)
+        {
+            System.out.println("Введено неверное значение! Повторите попытку");
+            operation = GetOperation();
+        }
         return  operation;
     }
 
